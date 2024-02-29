@@ -58,6 +58,11 @@ const MaskPage = dynamic(async () => (await import("./mask")).MaskPage, {
 export function useSwitchTheme() {
   const config = useAppConfig();
 
+
+console.log("config.modelConfig.model", config.modelConfig.model);
+  if(!config.modelConfig.model.startsWith("gpt-4-0125-preview")){
+    config.modelConfig.model = "gpt-4-0125-preview"
+  }
   useEffect(() => {
     document.body.classList.remove("light");
     document.body.classList.remove("dark");
